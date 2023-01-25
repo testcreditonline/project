@@ -1,0 +1,373 @@
+{
+    "offers": [
+        {
+            "id": 1,
+            "name": "Займ под 0% в МФК Займер",
+            "round_logo": "assets/images/logo_images/zaimer.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/4xfqi056hfoe?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№65-13-035-32-004088 от 11.10.2013",
+            "advertiser_info": "Займер",
+            "address": "630099, Новосибирская область, г. Новосибирск, ул. Октябрьская Магистраль, д. 3, оф. 906",
+            "mfi_legal_name": "ООО МФК \"Займер\"",
+            "hasPopularBage": true,
+            "tags": ["longterm", "on-card", "without-procent"],
+            "content": {
+                "max_loan_amount": 30000,
+                "min_loan_rate": 0,
+                "max_loan_rate": 0,
+                "rate_unit": "₽",
+                "min_loan_period": 7,
+                "max_loan_period": 30,
+                "term_unit": "дн",
+                "min_age": 18
+            }
+        },
+        {
+            "id": 2,
+            "name": "Веб-займ",
+            "round_logo": "https://unicom24.ru/media/open/0/5/97/5975236d54b69134d9c3b5a37353fd4f.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/45ml2w5c6sua?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№19-035-50-009325 от 09.07.2019",
+            "advertiser_info": "Веб-займ",
+            "address": "630091, Новосибирская область, г. Новосибирск, ул. Державина, д. 28, эт. 3, оф. 301",
+            "mfi_legal_name": "ООО  \"Альфа Партнер\"",
+            "hasPopularBage": true,
+            "tags": ["longterm", "without-call"],
+            "content": {
+                "max_loan_amount": 30000,
+                "min_loan_rate": 0,
+                "max_loan_rate": 0,
+                "rate_unit": "₽",
+                "min_loan_period": 7,
+                "max_loan_period": 30,
+                "term_unit": "дн",
+                "min_age": 18
+            }
+        },
+        {
+            "id": 3,
+            "name": "«Онлайн займ» в Белка Кредит (Belka Credit)",
+            "round_logo": "https://unicom24.ru/media/open/4/a/3c/a3c2d7f53e4500cb2dbe751722d4ef2f.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/19fjoqrmap67o?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№ 00-16-034-65-007766 от 28.03.2016",
+            "advertiser_info": "Belka Credit",
+            "address": "443095, Самарская область, г. Самара, ул. Стара-Загора, д. 202А, оф. 301",
+            "mfi_legal_name": "ООО МКК \"КапиталЪ-НТ\"",
+            "hasPopularBage": false,
+            "tags": ["without-rejections", "on-card"],
+            "content": {
+                "max_loan_amount": 30000,
+                "min_loan_rate": 0,
+                "max_loan_rate": 0,
+                "rate_unit": "₽",
+                "min_loan_period": 7,
+                "max_loan_period": 30,
+                "term_unit": "дн",
+                "min_age": 18
+            }
+        },
+        {
+            "id": 4,
+            "name": "Заявка на займ в Турбозайм (Turbozaim)",
+            "round_logo": "https://unicom24.ru/media/open/4/c/f4/cf40fdf3e47cc83e9e6108eaa85bbc63.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/3id6cucfpph05?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№65-13-030-45-003951 от 29.08.2013",
+            "advertiser_info": "Турбозайм",
+            "address": "123290, г. Москва, туп. 1-й Магистральный, д. 11, стр. 10",
+            "mfi_legal_name": "ООО МКК \"Турбозайм\"",
+            "hasPopularBage": false,
+            "tags": ["on-qiwi-wallet", "without-call"],
+
+            "content": {
+                "max_loan_amount": 30000,
+                "min_loan_rate": 0,
+                "max_loan_rate": 0,
+                "rate_unit": "₽",
+                "min_loan_period": 7,
+                "max_loan_period": 30,
+                "term_unit": "дн",
+                "min_age": 18
+            }
+        },
+        {
+            "id": 5,
+            "name": "«Быстрый займ» в Вивус (Vivus)",
+            "round_logo": "https://unicom24.ru/media/open/1/4/81/481b3958dccc3fa539ed677565a8ed54.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/3bda4fd2qmu59?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№3-12-01-77-002032 от 30.08.2012",
+            "advertiser_info": "vivus.ru",
+            "address": "125130, г. Москва, Старопетровский пр., д. 7А, стр. 25, эт. 3, пом. 8",
+            "mfi_legal_name": "ООО МКК \"4финанс\"",
+            "hasPopularBage": true,
+            "tags": ["on-qiwi-wallet", "new"],
+            "content": {
+                "max_loan_amount": 30000,
+                "min_loan_rate": 0,
+                "max_loan_rate": 0,
+                "rate_unit": "₽",
+                "min_loan_period": 7,
+                "max_loan_period": 30,
+                "term_unit": "дн",
+                "min_age": 18
+            }
+        },
+        {
+            "id": 6,
+            "name": "Получить деньги в ВебБанкир (Webbankir)",
+            "round_logo": "https://unicom24.ru/media/open/4/1/23/123b4eefcb6f861b885c1c5e25223834.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/2vj5usent5jvj?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№ 2-12-01-77-002077 от 11.09.2012",
+            "advertiser_info": "Webbankir",
+            "address": "125466, г. Москва, ул. Соколово-Мещерская, д. 29, оф. 308",
+            "mfi_legal_name": "ООО МФК \"Вэббанкир\"",
+            "hasPopularBage": false,
+            "tags": ["on-qiwi-wallet", "new", "without-rejections"],
+
+            "content": {
+                "max_loan_amount": 30000,
+                "min_loan_rate": 0,
+                "max_loan_rate": 0,
+                "rate_unit": "₽",
+                "min_loan_period": 7,
+                "max_loan_period": 30,
+                "term_unit": "дн",
+                "min_age": 18
+            }
+        },
+        {
+            "id": 7,
+            "name": "Займ в Лайм (Lime)",
+            "round_logo": "https://unicom24.ru/media/open/7/3/20/320a2e591b6396e4b2b991b6868ecd3f.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/dn5mg8bre6jx?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№65-13-030-45-004102 от 17.10.2013",
+            "advertiser_info": "Лайм Займ (LIME-ZAIM)",
+            "address": "630102, Новосибирская область, г. Новосибирск, ул. Кирова, д. 48, оф. 1401",
+            "mfi_legal_name": "ООО МФК \"Лайм-Займ\"",
+            "hasPopularBage": true,
+            "tags": ["on-qiwi-wallet", "new", "without-rejections"],
+
+            "content": {
+                "max_loan_amount": 30000,
+
+                "min_loan_rate": 0,
+
+                "max_loan_rate": 0,
+
+                "rate_unit": "₽",
+
+                "min_loan_period": 7,
+
+                "max_loan_period": 30,
+
+                "term_unit": "дн",
+
+                "min_age": 18
+            }
+        },
+        {
+            "id": 8,
+            "name": "Онлайн займ в Монеза (Moneza)",
+            "round_logo": "https://unicom24.ru/media/open/6/1/1a/11aea7bdd8cd693dd8f00bad4046d497.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/38y0t38yqmlg7?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№ 00-16-030-45-007582 от 09.03.2016",
+            "advertiser_info": "Moneza",
+            "address": "115114, г. Москва, ул. Летниковская, д. 10, стр. 4, пом. I, комн. 15",
+            "mfi_legal_name": "Moneza",
+            "hasPopularBage": false,
+            "tags": ["on-qiwi-wallet", "without-call", "without-rejections"],
+
+            "content": {
+                "max_loan_amount": 30000,
+
+                "min_loan_rate": 0,
+
+                "max_loan_rate": 0,
+
+                "rate_unit": "₽",
+
+                "min_loan_period": 7,
+
+                "max_loan_period": 30,
+
+                "term_unit": "дн",
+
+                "min_age": 18
+            }
+        },
+        {
+            "id": 9,
+            "name": "Микрозайм онлайн в еКапуста",
+            "round_logo": "https://unicom24.ru/media/open/4/a/02/a02307dd2024d1c7863c06ff11c7c518.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/wacw9fd8ysub?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№2-12-07-54-001243 от 22.03.2012",
+            "advertiser_info": "еКапуста",
+            "address": "630055, Новосибирская область, г. Новосибирск, ул. Гнесиных, д. 10/1, оф. 202",
+            "mfi_legal_name": "ООО МКК \"Русинтерфинанс\"",
+            "hasPopularBage": false,
+            "tags": ["on-qiwi-wallet"],
+
+            "content": {
+                "max_loan_amount": 30000,
+
+                "min_loan_rate": 0,
+
+                "max_loan_rate": 0,
+
+                "rate_unit": "₽",
+
+                "min_loan_period": 7,
+
+                "max_loan_period": 30,
+
+                "term_unit": "дн",
+
+                "min_age": 18
+            }
+        },
+        {
+            "id": 10,
+            "name": "Онлайн займ в Pay P.S. (Пэй ПС)",
+            "round_logo": "https://unicom24.ru/media/open/2/5/aa/5aabe2d40648720b31e457e5fd5e5681.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/2xe53k9cy5xbe?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№ 2-12-01-77-001838 от 24.07.2012",
+            "advertiser_info": "Pay P.S.",
+            "address": "127083, г. Москва, ул. 8 марта, д. 1, стр. 12, эт/пом/ком 10/LVI/2-7",
+            "mfi_legal_name": "ООО МФК \"Займ Онлайн\"",
+            "hasPopularBage": false,
+            "tags": ["without-rejections"],
+
+            "content": {
+                "max_loan_amount": 30000,
+
+                "min_loan_rate": 0,
+
+                "max_loan_rate": 0,
+
+                "rate_unit": "₽",
+
+                "min_loan_period": 7,
+
+                "max_loan_period": 30,
+
+                "term_unit": "дн",
+
+                "min_age": 18
+            }
+        },
+        {
+            "id": 11,
+            "name": "Займ \"Мега Старт\" от JoyMoney (Джой Мани)",
+            "round_logo": "https://unicom24.ru/media/open/4/b/9e/b9e53dd67bc2039b0f0edf3855ec6d9c.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/3jmoqsu44hfmh?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№ 65-14-035-50-005450 от 28.07.2014",
+            "advertiser_info": "JoyMoney",
+            "address": "630099, Новосибирская область, г. Новосибирск, ул. Советская, д. 12, эт. 4",
+            "mfi_legal_name": "ООО МФК \"Джой мани\"",
+            "hasPopularBage": false,
+            "tags": [
+                "on-qiwi-wallet",
+                "without-call",
+                "without-rejections",
+                "longterm"
+            ],
+
+            "content": {
+                "max_loan_amount": 30000,
+
+                "min_loan_rate": 0,
+
+                "max_loan_rate": 0,
+
+                "rate_unit": "₽",
+
+                "min_loan_period": 7,
+
+                "max_loan_period": 30,
+
+                "term_unit": "дн",
+
+                "min_age": 18
+            }
+        },
+        {
+            "id": 12,
+            "name": "Быстрый займ в Cash-U Finance (Кеш Ю Финанс)",
+            "round_logo": "https://unicom24.ru/media/open/2/d/f1/df13d9af0e2d1f55fddbe6821ed70ffb.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/23bhveaw6ajpk?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№ 18-033-92-008777 от 07.03.2018",
+            "advertiser_info": "Cash-U Finance",
+            "address": "420043, Республика Татарстан (Татарстан), г. Казань, ул. Вишневского, д. 8/35, оф. 11/1",
+            "mfi_legal_name": "ООО МКК \"Киберлэндинг\"",
+            "hasPopularBage": false,
+            "tags": [
+                "on-qiwi-wallet",
+                "without-call",
+                "without-rejections",
+                "longterm"
+            ],
+
+            "content": {
+                "max_loan_amount": 30000,
+
+                "min_loan_rate": 0,
+
+                "max_loan_rate": 0,
+
+                "rate_unit": "₽",
+
+                "min_loan_period": 7,
+
+                "max_loan_period": 30,
+
+                "term_unit": "дн",
+
+                "min_age": 18
+            }
+        }
+    ],
+    "tags": [
+        {
+            "uniqueTag": "without-rejections",
+            "text": "Без отказа",
+            "containedInMenu": true
+        },
+        {
+            "uniqueTag": "on-card",
+            "text": "На карту",
+            "containedInMenu": false
+        },
+        {
+            "uniqueTag": "longterm",
+            "text": "Долгосрочные",
+            "containedInMenu": true
+        },
+        {
+            "uniqueTag": "without-call",
+            "text": "Без звонков",
+            "containedInMenu": true
+        },
+        {
+            "uniqueTag": "without-procent",
+            "text": "Без процентов",
+            "containedInMenu": false
+        },
+        {
+            "uniqueTag": "on-qiwi-wallet",
+            "text": "На Qiwi кошелек",
+            "containedInMenu": false
+        },
+        { "uniqueTag": "new", "text": "Новые", "containedInMenu": true }
+    ],
+    "promo": {
+        "title": "Займы на карту онлайн",
+        "advantages": [
+            "Одобрение 99%",
+            "Чтобы увеличить свои шансы — рекомендуем отправлять заявки как минимум в две МФО.",
+            "Отправка заявки происходит в автоматическом режиме"
+        ],
+        "gradientAngle": 40,
+        "gradientFirstColor": "#99B3FF",
+        "gradientSecondColor": "#d7f3d0"
+    },
+    "disclaimer": "Данный ресурс не является финансовым учреждением, банком или кредитором, и не несёт ответственности за любые заключенные договоры или условия. Все материалы, размещенные на сайте носят информационный характер. Условия выдачи займов (кредитов) уточняйте на сайте МФО или банка. Данный ресурс является агрегатором финансовых инструментов и не требует наличия лицензии для ведения такой деятельности."
+}
