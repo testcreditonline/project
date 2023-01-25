@@ -3,6 +3,7 @@ let loading = false;
 const headerWrapperContainer = document.querySelector(
     ".header-wrapper-container"
 );
+const headerWrapper = document.querySelector(".header-wrapper");
 const lookingForList = document.querySelector(".looking-for__list");
 const offerWrapper = document.querySelector(".offer-wrapper");
 const creditorWrapper = document.querySelector(".creditor-wrapper");
@@ -11,10 +12,19 @@ const slice = document.querySelector(".slice");
 
 const mobileMenu = document.querySelector(".mobile-menu");
 const mobileMenuButton = document.querySelector(".mobile-menu__button");
+const mobileMenuWrapper = document.querySelector(".mobile-menu__wrapper");
 const menuListElems = document.querySelectorAll(".menu__list");
 
 const toggleMenu = () => {
     mobileMenu.classList.toggle("active");
+};
+
+const closeMenu = (e) => {
+    const target = e.target;
+
+    if (!mobileMenu.classList.contains("active")) return;
+
+    if (!target.closest(".menu__list")) mobileMenu.classList.remove("active");
 };
 
 const getTag = () => {
@@ -54,7 +64,20 @@ const renderMenu = (tags) => {
     });
 };
 
-const renderBanner = ({ title, advantages }) => {
+const renderBanner = ({
+    title,
+    advantages,
+    gradientAngle,
+    gradientFirstColor,
+    gradientSecondColor,
+}) => {
+    const gradient = `linear-gradient(${gradientAngle}deg, ${gradientFirstColor}, ${gradientSecondColor})`;
+
+    headerWrapperContainer.style.background =
+        window.innerWidth < 1024 ? gradient : "";
+
+    headerWrapper.style.background = window.innerWidth >= 1024 ? gradient : "";
+
     const advantagesList = arrayRender(
         advantages,
         (a) => `
@@ -75,28 +98,21 @@ const renderBanner = ({ title, advantages }) => {
   `
     );
 
-    headerWrapperContainer.innerHTML = `
-		<div data-v-fa5ea76c="">
-                <div
-                  class="header-wrapper green_3d"
-                  
-                  data-v-fa5ea76c=""
-                >
-                  <div class="info-wrap" data-v-fa5ea76c="">
-                    <div class="title font-card-accent" data-v-fa5ea76c="">${title}</div>
-                    <div class="advantages-wrap" data-v-fa5ea76c="">
-                      ${advantagesList}
-                    </div>
-                  </div>
-                  <div class="image-wrap" data-v-fa5ea76c="">
-                    <picture data-v-fa5ea76c="">
-                      <source media="(max-width: 767px)" srcset="assets/images/banner_images/xs.png" data-v-fa5ea76c="" />
-                      <source media="(min-width: 768px)" srcset="assets/images/banner_images/md.png" data-v-fa5ea76c="" />
-                      <img src="assets/images/banner_images/xs.png" alt="" data-v-fa5ea76c="" />
-                    </picture>
-                  </div>
-                </div>
-              </div>
+    headerWrapper.innerHTML = `
+        <div class="info-wrap" data-v-fa5ea76c="">
+          <div class="title font-card-accent" data-v-fa5ea76c="">${title}</div>
+          <div class="advantages-wrap" data-v-fa5ea76c="">
+            ${advantagesList}
+          </div>
+        </div>
+        <div class="image-wrap" data-v-fa5ea76c="">
+          <picture data-v-fa5ea76c="">
+            <source media="(max-width: 767px)" srcset="assets/images/banner_images/xs.png" data-v-fa5ea76c="" />
+            <source media="(min-width: 768px)" srcset="assets/images/banner_images/md.png" data-v-fa5ea76c="" />
+            <img src="assets/images/banner_images/xs.png" alt="" data-v-fa5ea76c="" />
+          </picture>
+        </div>
+      </div>
 	`;
 };
 
@@ -240,3 +256,4 @@ const start = async () => {
 start();
 
 mobileMenuButton.addEventListener("click", toggleMenu);
+mobileMenuWrapper.addEventListener("click", closeMenu);
