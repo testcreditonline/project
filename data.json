@@ -9,7 +9,9 @@
             "advertiser_info": "Займер",
             "address": "630099, Новосибирская область, г. Новосибирск, ул. Октябрьская Магистраль, д. 3, оф. 906",
             "mfi_legal_name": "ООО МФК \"Займер\"",
-            "hasPopularBage": true,
+            "hasBage": true,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["longterm", "on-card", "without-procent"],
             "content": {
                 "max_loan_amount": 30000,
@@ -31,7 +33,9 @@
             "advertiser_info": "Веб-займ",
             "address": "630091, Новосибирская область, г. Новосибирск, ул. Державина, д. 28, эт. 3, оф. 301",
             "mfi_legal_name": "ООО  \"Альфа Партнер\"",
-            "hasPopularBage": true,
+            "hasBage": true,
+            "bageText": "Выгодно",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["longterm", "without-call"],
             "content": {
                 "max_loan_amount": 30000,
@@ -53,7 +57,9 @@
             "advertiser_info": "Belka Credit",
             "address": "443095, Самарская область, г. Самара, ул. Стара-Загора, д. 202А, оф. 301",
             "mfi_legal_name": "ООО МКК \"КапиталЪ-НТ\"",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["without-rejections", "on-card"],
             "content": {
                 "max_loan_amount": 30000,
@@ -75,7 +81,9 @@
             "advertiser_info": "Турбозайм",
             "address": "123290, г. Москва, туп. 1-й Магистральный, д. 11, стр. 10",
             "mfi_legal_name": "ООО МКК \"Турбозайм\"",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["on-qiwi-wallet", "without-call"],
 
             "content": {
@@ -98,7 +106,9 @@
             "advertiser_info": "vivus.ru",
             "address": "125130, г. Москва, Старопетровский пр., д. 7А, стр. 25, эт. 3, пом. 8",
             "mfi_legal_name": "ООО МКК \"4финанс\"",
-            "hasPopularBage": true,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["on-qiwi-wallet", "new"],
             "content": {
                 "max_loan_amount": 30000,
@@ -120,7 +130,9 @@
             "advertiser_info": "Webbankir",
             "address": "125466, г. Москва, ул. Соколово-Мещерская, д. 29, оф. 308",
             "mfi_legal_name": "ООО МФК \"Вэббанкир\"",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["on-qiwi-wallet", "new", "without-rejections"],
 
             "content": {
@@ -143,7 +155,9 @@
             "advertiser_info": "Лайм Займ (LIME-ZAIM)",
             "address": "630102, Новосибирская область, г. Новосибирск, ул. Кирова, д. 48, оф. 1401",
             "mfi_legal_name": "ООО МФК \"Лайм-Займ\"",
-            "hasPopularBage": true,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["on-qiwi-wallet", "new", "without-rejections"],
 
             "content": {
@@ -173,7 +187,9 @@
             "advertiser_info": "Moneza",
             "address": "115114, г. Москва, ул. Летниковская, д. 10, стр. 4, пом. I, комн. 15",
             "mfi_legal_name": "Moneza",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["on-qiwi-wallet", "without-call", "without-rejections"],
 
             "content": {
@@ -203,7 +219,9 @@
             "advertiser_info": "еКапуста",
             "address": "630055, Новосибирская область, г. Новосибирск, ул. Гнесиных, д. 10/1, оф. 202",
             "mfi_legal_name": "ООО МКК \"Русинтерфинанс\"",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["on-qiwi-wallet"],
 
             "content": {
@@ -233,7 +251,9 @@
             "advertiser_info": "Pay P.S.",
             "address": "127083, г. Москва, ул. 8 марта, д. 1, стр. 12, эт/пом/ком 10/LVI/2-7",
             "mfi_legal_name": "ООО МФК \"Займ Онлайн\"",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": ["without-rejections"],
 
             "content": {
@@ -263,7 +283,9 @@
             "advertiser_info": "JoyMoney",
             "address": "630099, Новосибирская область, г. Новосибирск, ул. Советская, д. 12, эт. 4",
             "mfi_legal_name": "ООО МФК \"Джой мани\"",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": [
                 "on-qiwi-wallet",
                 "without-call",
@@ -298,7 +320,9 @@
             "advertiser_info": "Cash-U Finance",
             "address": "420043, Республика Татарстан (Татарстан), г. Казань, ул. Вишневского, д. 8/35, оф. 11/1",
             "mfi_legal_name": "ООО МКК \"Киберлэндинг\"",
-            "hasPopularBage": false,
+            "hasBage": false,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": [
                 "on-qiwi-wallet",
                 "without-call",
@@ -333,7 +357,9 @@
             "advertiser_info": "Cash-U Finance",
             "address": "420043, Республика Татарстан (Татарстан), г. Казань, ул. Вишневского, д. 8/35, оф. 11/1",
             "mfi_legal_name": "ООО МКК \"Киберлэндинг\"",
-            "hasPopularBage": true,
+            "hasBage": true,
+            "bageText": "Рекомендуем",
+            "bageIcon": "assets/images/bage_icons/recomend.svg",
             "tags": [
                 "on-qiwi-wallet",
                 "without-call",

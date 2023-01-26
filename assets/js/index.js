@@ -2,13 +2,15 @@ let loading = false;
 let current = 0;
 let startX;
 let endX;
+let currentX = 0;
+let lookingForItems;
 
 const headerWrapperContainer = document.querySelector(
     ".header-wrapper-container"
 );
 const headerWrapper = document.querySelector(".header-wrapper");
-const lookingForList = document.querySelector(".looking-for__list");
 const lookingForContent = document.querySelector(".looking-for__content");
+const lookingForList = document.querySelector(".looking-for__list");
 const offerWrapper = document.querySelector(".offer-wrapper");
 const creditorWrapper = document.querySelector(".creditor-wrapper");
 const disclaimerWrapper = document.querySelector(".disclaimer");
@@ -144,30 +146,18 @@ const renderLookingFor = (tags) => {
 
 const renderOffersList = (offers) => {
     offerWrapper.innerHTML = arrayRender(offers, (offer) => {
-        let popularBage = `<span></span>`;
-        if (offer.hasPopularBage) {
-            popularBage = `<div class="bage font-card-accent cursor-p" data-v-46445f2c="">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewbox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="icon"
-                            data-v-46445f2c=""
-                          >
-                            <path
-                              d="M12.9261 6.16895C12.897 6.11765 12.8548 6.07498 12.8039 6.04529C12.7529 6.0156 12.695 5.99995 12.6361 5.99995H8.26939L9.00147 0.406369C9.00932 0.331508 8.99176 0.256181 8.9516 0.192517C8.91144 0.128853 8.85102 0.0805566 8.78008 0.0554039C8.70913 0.0302511 8.63178 0.0297056 8.56049 0.0538553C8.4892 0.0780049 8.42811 0.125444 8.38705 0.188536L3.07672 9.49204C3.04567 9.54254 3.02865 9.60042 3.02742 9.6597C3.02618 9.71898 3.04079 9.77751 3.06972 9.82926C3.09864 9.88102 3.14085 9.92412 3.19199 9.95412C3.24313 9.98413 3.30135 9.99995 3.36064 9.99995H7.66205L7.08189 15.602C7.07618 15.6766 7.0956 15.7509 7.13704 15.8132C7.17847 15.8755 7.23956 15.9222 7.31056 15.9457C7.38157 15.9693 7.45843 15.9685 7.5289 15.9433C7.59937 15.9182 7.65941 15.8702 7.69947 15.807L12.9221 6.50454C12.9523 6.45395 12.9687 6.39624 12.9694 6.33729C12.9701 6.27833 12.9551 6.22025 12.9261 6.16895Z"
-                              fill="white"
-                              data-v-46445f2c=""
-                            ></path>
-                          </svg>
+        let bage = ``;
+        let marginTop = 38;
 
-                          Рекомендуем
-                        </div>`;
+        if (offer.hasBage) {
+            bage = `<div class="bage font-card-accent cursor-p" data-v-46445f2c="">
+                      <img src="${offer.bageIcon}">
+                      ${offer.bageText}
+                    </div>`;
+            marginTop = 0;
         }
-        return `		<a href="${offer.redirect_link}" class="offer qiwi" data-v-46445f2c="">
-                        ${popularBage}
+        return `		<a style="padding-top: ${marginTop}px" href="${offer.redirect_link}" class="offer qiwi" data-v-46445f2c="">
+                        ${bage}
                         <div class="offer-block cursor-p" data-v-46445f2c="">
                           <div class="offer-content" data-v-46445f2c="">
                             <div class="name-wrap" data-v-46445f2c="">
@@ -298,20 +288,56 @@ mobileMenuButton.addEventListener("click", toggleMenu);
 mobileMenuWrapper.addEventListener("click", closeMenu);
 lookingForContent.addEventListener("click", handleMoveTo);
 
-// const handleTouchStart = (e) => {
-//     startX = e.touches[0].clientX;
-// };
+const handleTouchStart = (e) => {
+    startX = e.touches[0].clientX;
+};
 
-// const handleTouchMove = (e) => {
-//     endX = e.touches[0].clientX;
-// };
+const handleTouchMove = (e) => {
+    endX = e.touches[0].clientX;
 
-// const handleTouchEnd = () => {
-//     if (Math.abs(startX - endX) < 30) return;
-//     if (startX > endX) moveToSide("right");
-//     if (startX < endX) moveToSide("left");
-// };
+    lookingForItems = document.querySelectorAll(".looking-for__item");
 
-// lookingForContent.addEventListener("touchstart", handleTouchStart);
-// lookingForContent.addEventListener("touchmove", handleTouchMove);
-// lookingForContent.addEventListener("touchend", handleTouchEnd);
+    let translateX;
+
+    if (startX >= endX) {
+        translateX = currentX - Math.abs(startX - endX);
+    } else {
+        translateX = currentX + Math.abs(startX - endX);
+    }
+
+    lookingForItems.forEach((item) => {
+        item.style.transform = `translateX(${translateX}px)`;
+    });
+};
+
+const handleTouchEnd = () => {
+    if (window.innerWidth >= 1024) return;
+
+    if (startX >= endX) {
+        currentX = currentX - Math.abs(startX - endX);
+    } else {
+        currentX = currentX + Math.abs(startX - endX);
+    }
+
+    const summ =
+        [...lookingForItems].reduce((sum, item) => {
+            return (sum += 10 + item.clientWidth);
+        }, 0) - lookingForList.clientWidth;
+
+    if (currentX > 0) {
+        currentX = 0;
+        lookingForItems.forEach((item) => {
+            item.style.transform = `translateX(${currentX}px)`;
+        });
+    }
+    if (summ < Math.abs(currentX)) {
+        currentX = -summ;
+        lookingForItems.forEach((item) => {
+            item.style.transform = `translateX(${currentX}px)`;
+        });
+    }
+};
+
+lookingForContent.addEventListener("touchstart", handleTouchStart);
+lookingForContent.addEventListener("touchmove", handleTouchMove);
+lookingForContent.addEventListener("touchend", handleTouchEnd);
