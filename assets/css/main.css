@@ -3620,11 +3620,15 @@ body.open-modal {
     cursor: pointer;
     border: none;
     background-color: transparent;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 40px;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 50%;
     background-position: center;
+    border-radius: 50%;
+}
+.looking-for__button:hover {
+    background-color: #ccddbe;
 }
 
 .looking-for__button_left {
@@ -3655,6 +3659,7 @@ body.open-modal {
     border-radius: 15px;
     margin: 0 5px;
     white-space: nowrap;
+    transition: transform 0.3s ease-in-out;
 }
 
 .looking-for__link {
@@ -3683,6 +3688,10 @@ body.open-modal {
 @media screen and (max-width: 1024px) {
     .looking-for {
         padding: 0 34px;
+    }
+
+    .looking-for__item {
+        transition: none;
     }
 
     .looking-for__button {

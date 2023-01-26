@@ -2,6 +2,8 @@ let loading = false;
 let current = 0;
 let startX;
 let endX;
+let positionDesctop = 0;
+let currentDesctop = 0;
 let currentX = 0;
 let lookingForItems;
 
@@ -11,6 +13,8 @@ const headerWrapperContainer = document.querySelector(
 const headerWrapper = document.querySelector(".header-wrapper");
 const lookingForContent = document.querySelector(".looking-for__content");
 const lookingForList = document.querySelector(".looking-for__list");
+const buttonLeft = document.querySelector(".looking-for__button_left");
+const buttonRight = document.querySelector(".looking-for__button_right");
 const offerWrapper = document.querySelector(".offer-wrapper");
 const creditorWrapper = document.querySelector(".creditor-wrapper");
 const disclaimerWrapper = document.querySelector(".disclaimer");
@@ -248,28 +252,6 @@ const render = (data) => {
     renderDisclaimer(disclaimer);
 };
 
-const handleMoveTo = (e) => {
-    const target = e.target;
-
-    if (target.closest(".looking-for__button_left")) moveToSide("left");
-    if (target.closest(".looking-for__button_right")) moveToSide("right");
-};
-
-const moveToSide = (side) => {
-    const tags = document.querySelectorAll(".looking-for__item");
-
-    tags.forEach((t) => {
-        const order = +t.style.order;
-        if (side === "right") {
-            if (order === 0) t.style.order = tags.length - 1;
-            else t.style.order = order - 1;
-        } else {
-            if (order === tags.length - 1) t.style.order = 0;
-            else t.style.order = order + 1;
-        }
-    });
-};
-
 const start = async () => {
     loading = true;
     const response = await fetch("data.json");
@@ -285,9 +267,52 @@ const start = async () => {
 
 start();
 
-mobileMenuButton.addEventListener("click", toggleMenu);
-mobileMenuWrapper.addEventListener("click", closeMenu);
-lookingForContent.addEventListener("click", handleMoveTo);
+const handleMoveTo = (e) => {
+    const target = e.target;
+
+    if (target.closest(".looking-for__button_left")) moveToSide("left");
+    if (target.closest(".looking-for__button_right")) moveToSide("right");
+};
+
+const moveToSide = (side) => {
+    const tags = document.querySelectorAll(".looking-for__item");
+    let width;
+
+    tags.forEach((t, i) => {
+        if (i === positionDesctop) width = t.clientWidth;
+    });
+
+    if (side === "right") {
+        if (positionDesctop === tags.length - 4) return;
+        tags.forEach((t, i) => {
+            if (i === positionDesctop) return (width = t.clientWidth);
+        });
+        currentDesctop = currentDesctop - 10 - width;
+        positionDesctop++;
+    } else {
+        if (positionDesctop <= 0) return;
+        tags.forEach((t, i) => {
+            if (i === positionDesctop - 1) width = t.clientWidth;
+        });
+        currentDesctop = currentDesctop + 10 + width;
+        positionDesctop--;
+    }
+
+    tags.forEach((t) => {
+        t.style.transform = `translateX(${currentDesctop}px)`;
+    });
+
+    // tags.forEach((t) => {
+    //     const order = +t.style.order;
+    //     if (side === "right") {
+    //         if (order === 0) t.style.order = tags.length - 1;
+    //         else t.style.order = order - 1;
+    //     } else {
+    //         if (order === tags.length - 1) t.style.order = 0;
+    //         else t.style.order = order + 1;
+    //     }
+    // });
+};
 
 const handleTouchStart = (e) => {
     startX = e.touches[0].clientX;
@@ -339,6 +364,9 @@ const handleTouchEnd = () => {
     }
 };
 
+mobileMenuButton.addEventListener("click", toggleMenu);
+mobileMenuWrapper.addEventListener("click", closeMenu);
+lookingForContent.addEventListener("click", handleMoveTo);
 lookingForContent.addEventListener("touchstart", handleTouchStart);
 lookingForContent.addEventListener("touchmove", handleTouchMove);
 lookingForContent.addEventListener("touchend", handleTouchEnd);
