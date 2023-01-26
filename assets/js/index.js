@@ -1,10 +1,14 @@
 let loading = false;
+let current = 0;
+let startX;
+let endX;
 
 const headerWrapperContainer = document.querySelector(
     ".header-wrapper-container"
 );
 const headerWrapper = document.querySelector(".header-wrapper");
 const lookingForList = document.querySelector(".looking-for__list");
+const lookingForContent = document.querySelector(".looking-for__content");
 const offerWrapper = document.querySelector(".offer-wrapper");
 const creditorWrapper = document.querySelector(".creditor-wrapper");
 const disclaimerWrapper = document.querySelector(".disclaimer");
@@ -119,9 +123,9 @@ const renderBanner = ({
 const renderLookingFor = (tags) => {
     const tag = getTag();
 
-    lookingForList.innerHTML = arrayRender(tags, (t) => {
+    lookingForList.innerHTML = arrayRender(tags, (t, i) => {
         const active = tag === t.uniqueTag ? "active" : "";
-        return `<div class="looking-for__item ${active}"><a class="looking-for__link" href="${t.uniqueTag}.html">${t.text}</a></div>`;
+        return `<div style="order: ${i}" class="looking-for__item ${active}"><a class="looking-for__link" href="${t.uniqueTag}.html">${t.text}</a></div>`;
     });
 };
 
@@ -240,6 +244,30 @@ const render = (data) => {
     renderDisclaimer(disclaimer);
 };
 
+const handleMoveTo = (e) => {
+    if (window.innerWidth < 1024) return;
+
+    const target = e.target;
+
+    if (target.closest(".looking-for__button_left")) moveToSide("left");
+    if (target.closest(".looking-for__button_right")) moveToSide("right");
+};
+
+const moveToSide = (side) => {
+    const tags = document.querySelectorAll(".looking-for__item");
+
+    tags.forEach((t) => {
+        const order = +t.style.order;
+        if (side === "right") {
+            if (order === 0) t.style.order = tags.length - 1;
+            else t.style.order = order - 1;
+        } else {
+            if (order === tags.length - 1) t.style.order = 0;
+            else t.style.order = order + 1;
+        }
+    });
+};
+
 const start = async () => {
     loading = true;
     const response = await fetch("data.json");
@@ -257,3 +285,4 @@ start();
 
 mobileMenuButton.addEventListener("click", toggleMenu);
 mobileMenuWrapper.addEventListener("click", closeMenu);
+lookingForContent.addEventListener("click", handleMoveTo);

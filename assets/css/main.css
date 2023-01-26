@@ -3686,6 +3686,18 @@ body.open-modal {
     .looking-for {
         padding: 0 34px;
     }
+    .looking-for__button {
+        display: none;
+    }
+    .looking-for__list {
+        overflow-x: scroll;
+        margin: 0;
+    }
+
+    .looking-for__list::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -3693,7 +3705,7 @@ body.open-modal {
         padding: 0 16px;
     }
     .looking-for__list {
-        margin: 0 5px;
+        margin: 0;
     }
     .looking-for__item {
         height: 25px;
