@@ -283,7 +283,7 @@ const moveToSide = (side) => {
     });
 
     if (side === "right") {
-        if (positionDesctop === tags.length - 4) return;
+        if (positionDesctop === tags.length - 1) return;
         tags.forEach((t, i) => {
             if (i === positionDesctop) return (width = t.clientWidth);
         });
