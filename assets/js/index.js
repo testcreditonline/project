@@ -123,7 +123,16 @@ const renderBanner = ({
 const renderLookingFor = (tags) => {
     const tag = getTag();
 
-    lookingForList.innerHTML = arrayRender(tags, (t, i) => {
+    const sortedTags = [...tags];
+
+    const uniqueTagElement = sortedTags.findIndex((t) => t.uniqueTag === tag);
+
+    [sortedTags[0], sortedTags[uniqueTagElement]] = [
+        sortedTags[uniqueTagElement],
+        sortedTags[0],
+    ];
+
+    lookingForList.innerHTML = arrayRender(sortedTags, (t, i) => {
         const active = tag === t.uniqueTag ? "active" : "";
         return `<div style="order: ${i}" class="looking-for__item ${active}"><a class="looking-for__link" href="${t.uniqueTag}.html">${t.text}</a></div>`;
     });
