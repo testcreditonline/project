@@ -3697,6 +3697,7 @@ body.open-modal {
     .looking-for__list::-webkit-scrollbar {
         width: 0;
         height: 0;
+        -webkit-appearance: none;
     }
 }
 
@@ -3710,6 +3711,7 @@ body.open-modal {
     .looking-for__list::-webkit-scrollbar {
         width: 0;
         height: 0;
+        -webkit-appearance: none;
     }
     .looking-for__item {
         height: 25px;
