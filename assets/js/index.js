@@ -156,6 +156,7 @@ const renderOffersList = (offers) => {
                     </div>`;
             marginTop = 0;
         }
+        if (window.innerWidth <= 768) marginTop = 0;
         return `		<a style="padding-top: ${marginTop}px" href="${offer.redirect_link}" class="offer qiwi" data-v-46445f2c="">
                         ${bage}
                         <div class="offer-block cursor-p" data-v-46445f2c="">
