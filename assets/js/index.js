@@ -245,8 +245,6 @@ const render = (data) => {
 };
 
 const handleMoveTo = (e) => {
-    if (window.innerWidth < 1024) return;
-
     const target = e.target;
 
     if (target.closest(".looking-for__button_left")) moveToSide("left");
@@ -286,3 +284,21 @@ start();
 mobileMenuButton.addEventListener("click", toggleMenu);
 mobileMenuWrapper.addEventListener("click", closeMenu);
 lookingForContent.addEventListener("click", handleMoveTo);
+
+// const handleTouchStart = (e) => {
+//     startX = e.touches[0].clientX;
+// };
+
+// const handleTouchMove = (e) => {
+//     endX = e.touches[0].clientX;
+// };
+
+// const handleTouchEnd = () => {
+//     if (Math.abs(startX - endX) < 30) return;
+//     if (startX > endX) moveToSide("right");
+//     if (startX < endX) moveToSide("left");
+// };
+
+// lookingForContent.addEventListener("touchstart", handleTouchStart);
+// lookingForContent.addEventListener("touchmove", handleTouchMove);
+// lookingForContent.addEventListener("touchend", handleTouchEnd);
