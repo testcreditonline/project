@@ -125,12 +125,16 @@ const renderLookingFor = (tags) => {
 
     const sortedTags = [...tags];
 
-    const uniqueTagElement = sortedTags.findIndex((t) => t.uniqueTag === tag);
+    if (tag && tag !== "index") {
+        const uniqueTagElement = sortedTags.findIndex(
+            (t) => t.uniqueTag === tag
+        );
 
-    [sortedTags[0], sortedTags[uniqueTagElement]] = [
-        sortedTags[uniqueTagElement],
-        sortedTags[0],
-    ];
+        [sortedTags[0], sortedTags[uniqueTagElement]] = [
+            sortedTags[uniqueTagElement],
+            sortedTags[0],
+        ];
+    }
 
     lookingForList.innerHTML = arrayRender(sortedTags, (t, i) => {
         const active = tag === t.uniqueTag ? "active" : "";

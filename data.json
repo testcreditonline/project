@@ -323,6 +323,41 @@
 
                 "min_age": 18
             }
+        },
+        {
+            "id": 13,
+            "name": "Добавленная карточка",
+            "round_logo": "https://unicom24.ru/media/open/2/d/f1/df13d9af0e2d1f55fddbe6821ed70ffb.png",
+            "redirect_link": "https://unicom24.ru/offer/rs/23bhveaw6ajpk?partner=191369&sub_id1=&sub_id2=s3&sub_id3=%7Bkeyword%7D&sub_id4=&sub_id5=Zaimi_%5Bfastcredit-online.ru%5D&showcase_id=6914",
+            "certificate_of_cb": "№ 18-033-92-008777 от 07.03.2018",
+            "advertiser_info": "Cash-U Finance",
+            "address": "420043, Республика Татарстан (Татарстан), г. Казань, ул. Вишневского, д. 8/35, оф. 11/1",
+            "mfi_legal_name": "ООО МКК \"Киберлэндинг\"",
+            "hasPopularBage": true,
+            "tags": [
+                "on-qiwi-wallet",
+                "without-call",
+                "without-rejections",
+                "longterm"
+            ],
+
+            "content": {
+                "max_loan_amount": 30000,
+
+                "min_loan_rate": 0,
+
+                "max_loan_rate": 0,
+
+                "rate_unit": "₽",
+
+                "min_loan_period": 7,
+
+                "max_loan_period": 30,
+
+                "term_unit": "дн",
+
+                "min_age": 18
+            }
         }
     ],
     "tags": [
@@ -356,7 +391,12 @@
             "text": "На Qiwi кошелек",
             "containedInMenu": false
         },
-        { "uniqueTag": "new", "text": "Новые", "containedInMenu": true }
+        { "uniqueTag": "new", "text": "Новые", "containedInMenu": true },
+        {
+            "uniqueTag": "new-page",
+            "text": "Новая страница",
+            "containedInMenu": false
+        }
     ],
     "promo": {
         "title": "Займы на карту онлайн",
