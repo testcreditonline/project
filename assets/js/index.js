@@ -335,21 +335,26 @@ const handleTouchMove = (e) => {
 const handleTouchEnd = () => {
     if (window.innerWidth >= 1024) return;
 
+    let tags = document.querySelectorAll(".looking-for__item");
+
     if (startX >= endX) {
         currentX = currentX - Math.abs(startX - endX);
     } else {
         currentX = currentX + Math.abs(startX - endX);
     }
 
-    const hiddenWidth =
-        lookingForContent.clientWidth - lookingForList.clientWidth;
+    const summ = [...tags].reduce((summ, t) => (summ += 10 + t.clientWidth), 0);
+
+    const hiddenWidth = lookingForContent.clientWidth - summ;
 
     if (currentX > 0) {
         currentX = 0;
         lookingForList.style.transform = `translateX(${currentX}px)`;
     }
+
+    // console.log(currentX, hiddenWidth, summ);
     if (currentX < hiddenWidth) {
-        currentX = hiddenWidth - 10;
+        currentX = hiddenWidth;
         lookingForList.style.transform = `translateX(${currentX}px)`;
     }
 };
