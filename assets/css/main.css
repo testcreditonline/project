@@ -3689,6 +3689,14 @@ body.open-modal {
     background-color: #b9e795;
 }
 
+.footer-block__title {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
 @media screen and (max-width: 1024px) {
     .looking-for {
         padding: 0 34px;

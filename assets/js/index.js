@@ -16,6 +16,7 @@ const buttonLeft = document.querySelector(".looking-for__button_left");
 const buttonRight = document.querySelector(".looking-for__button_right");
 const offerWrapper = document.querySelector(".offer-wrapper");
 const creditorWrapper = document.querySelector(".creditor-wrapper");
+const footerBlock = document.querySelector(".footer-block");
 const disclaimerWrapper = document.querySelector(".disclaimer");
 const slice = document.querySelector(".slice");
 
@@ -73,13 +74,26 @@ const renderMenu = (tags) => {
     });
 };
 
-const renderBanner = ({
-    title,
-    advantages,
-    gradientAngle,
-    gradientFirstColor,
-    gradientSecondColor,
-}) => {
+const renderBanner = (tags) => {
+    const tag = getTag();
+
+    let pageData;
+
+    if (!tag || tag === "index") pageData = tags[0];
+    else pageData = tags.filter((o) => o.uniqueTag === tag)[0];
+
+    const {
+        promo: { title, advantages },
+        bannerGradient: {
+            gradientAngle,
+            gradientFirstColor,
+            gradientSecondColor,
+        },
+        bannerImageDesctop,
+        bannerImageMobile,
+        advantageIcon,
+    } = pageData;
+
     const gradient = `linear-gradient(${gradientAngle}deg, ${gradientFirstColor}, ${gradientSecondColor})`;
 
     headerWrapperContainer.style.background =
@@ -92,15 +106,7 @@ const renderBanner = ({
         (a) => `
 	<div class="advantage" data-v-fa5ea76c="">
 			<div class="check" data-v-fa5ea76c="">
-				<svg width="12" height="12" viewbox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" data-v-fa5ea76c="">
-				<path
-					fill-rule="evenodd"
-					clip-rule="evenodd"
-					d="M10.5303 2.46967C10.8232 2.76256 10.8232 3.23744 10.5303 3.53033L5.03033 9.03033C4.73744 9.32322 4.26256 9.32322 3.96967 9.03033L1.46967 6.53033C1.17678 6.23744 1.17678 5.76256 1.46967 5.46967C1.76256 5.17678 2.23744 5.17678 2.53033 5.46967L4.5 7.43934L9.46967 2.46967C9.76256 2.17678 10.2374 2.17678 10.5303 2.46967Z"
-					fill="#2E2E2E"
-					data-v-fa5ea76c=""
-				></path>
-				</svg>
+				<img width="12" height="12" src="${advantageIcon}" >
 			</div>
 			<div class="text font-card-body" data-v-fa5ea76c="">${a}</div>
 		</div>
@@ -109,16 +115,16 @@ const renderBanner = ({
 
     headerWrapper.innerHTML = `
         <div class="info-wrap" data-v-fa5ea76c="">
-          <div class="title font-card-accent" data-v-fa5ea76c="">${title}</div>
+          <h1 class="title font-card-accent" data-v-fa5ea76c="">${title}</h1>
           <div class="advantages-wrap" data-v-fa5ea76c="">
             ${advantagesList}
           </div>
         </div>
         <div class="image-wrap" data-v-fa5ea76c="">
           <picture data-v-fa5ea76c="">
-            <source media="(max-width: 767px)" srcset="assets/images/banner_images/xs.png" data-v-fa5ea76c="" />
-            <source media="(min-width: 768px)" srcset="assets/images/banner_images/md.png" data-v-fa5ea76c="" />
-            <img src="assets/images/banner_images/xs.png" alt="" data-v-fa5ea76c="" />
+            <source media="(max-width: 767px)" srcset="${bannerImageMobile}" data-v-fa5ea76c="" />
+            <source media="(min-width: 768px)" srcset="${bannerImageDesctop}" data-v-fa5ea76c="" />
+            <img src="${bannerImageMobile}" alt="" data-v-fa5ea76c="" />
           </picture>
         </div>
       </div>
@@ -160,7 +166,7 @@ const renderOffersList = (offers) => {
             marginTop = 0;
         }
         if (window.innerWidth <= 768) marginTop = 0;
-        return `		<a style="padding-top: ${marginTop}px" href="${offer.redirect_link}" class="offer qiwi" data-v-46445f2c="">
+        return `<a onclick="${offer.ym_id};return true;" style="padding-top: ${marginTop}px" href="${offer.redirect_link}" class="offer qiwi" data-v-46445f2c="">
                         ${bage}
                         <div class="offer-block cursor-p" data-v-46445f2c="">
                           <div class="offer-content" data-v-46445f2c="">
@@ -210,6 +216,24 @@ const renderOffersList = (offers) => {
     });
 };
 
+const renderFooterBlock = (tags) => {
+    const tag = getTag();
+
+    let pageData;
+
+    if (!tag || tag === "index") pageData = tags[0];
+    else pageData = tags.filter((o) => o.uniqueTag === tag)[0];
+
+    const { footerTitle, footerText } = pageData;
+
+    footerBlock.innerHTML = `<h2 class="footer-block__title">
+                                        ${footerTitle}
+                                    </h2>
+                                    <p class="footer-block__text">
+                                        ${footerText}
+                                    </p>`;
+};
+
 const renderCreditorList = (offers) => {
     creditorWrapper.innerHTML = arrayRender(
         offers,
@@ -229,7 +253,7 @@ const renderDisclaimer = (disclaimer) => {
 };
 
 const render = (data) => {
-    const { offers, tags, promo, disclaimer } = data;
+    const { offers, tags, disclaimer } = data;
 
     changeDocumentTitle(tags);
 
@@ -244,9 +268,10 @@ const render = (data) => {
     });
 
     renderMenu(tags);
-    renderBanner(promo);
+    renderBanner(tags);
     renderLookingFor(tags);
     renderOffersList(filteredOffers);
+    renderFooterBlock(tags);
     renderCreditorList(filteredOffers);
     renderDisclaimer(disclaimer);
 };
