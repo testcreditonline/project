@@ -278,29 +278,61 @@ const moveToSide = (side) => {
     const tags = document.querySelectorAll(".looking-for__item");
     let width;
 
-    tags.forEach((t, i) => {
-        if (i === positionDesctop) width = t.clientWidth;
+    let hiddenElementsSumm = 0;
+
+    let lastPossibleIndex;
+
+    const summ = [...tags].reduce((sum, item) => {
+        return (sum += 10 + item.clientWidth);
+    }, 0);
+
+    [...tags].reverse().forEach((t, i) => {
+        if (summ - lookingForList.clientWidth > hiddenElementsSumm) {
+            hiddenElementsSumm += t.clientWidth;
+            lastPossibleIndex = i;
+            return;
+        }
     });
 
-    if (side === "right") {
-        if (positionDesctop === tags.length - 1) return;
-        tags.forEach((t, i) => {
-            if (i === positionDesctop) return (width = t.clientWidth);
-        });
-        currentDesctop = currentDesctop - 10 - width;
+    if (side === "right" && positionDesctop <= lastPossibleIndex) {
+        if (positionDesctop === lastPossibleIndex) return;
+        if (positionDesctop === lastPossibleIndex - 1)
+            width = -tags[tags.length - 1].clientWidth;
+        else {
+            tags.forEach((t, i) => {
+                if (i === positionDesctop) return (width = t.clientWidth);
+            });
+            width = -10 - width;
+        }
         positionDesctop++;
-    } else {
+    } else if (side === "left") {
         if (positionDesctop <= 0) return;
-        tags.forEach((t, i) => {
-            if (i === positionDesctop - 1) width = t.clientWidth;
-        });
-        currentDesctop = currentDesctop + 10 + width;
+        if (positionDesctop === lastPossibleIndex)
+            width = tags[tags.length - 1].clientWidth;
+        else {
+            tags.forEach((t, i) => {
+                if (i === positionDesctop - 1) width = t.clientWidth;
+            });
+            width = 10 + width;
+        }
         positionDesctop--;
     }
+
+    currentDesctop = currentDesctop + width;
 
     tags.forEach((t) => {
         t.style.transform = `translateX(${currentDesctop}px)`;
     });
+
+    // const width = tags[positionDesctop].clientWidth + 10;
+
+    // if (side === "right") {
+    //     positionDesctop++;
+    //     if (positionDesctop === tags.length) positionDesctop = 0;
+    // } else {
+    //     positionDesctop--;
+    //     if (positionDesctop === -1) positionDesctop = tags.length - 1;
+    // }
 
     // tags.forEach((t) => {
     //     const order = +t.style.order;
