@@ -3713,6 +3713,9 @@ body.open-modal {
     .looking-for__button {
         display: none;
     }
+    .footer-block__title {
+        margin-top: 18px;
+    }
 }
 
 @media screen and (max-width: 768px) {
