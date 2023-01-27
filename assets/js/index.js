@@ -83,7 +83,7 @@ const renderBanner = (tags) => {
     else pageData = tags.filter((o) => o.uniqueTag === tag)[0];
 
     const {
-        promo: { title, advantages },
+        promo: { title, advantages, titleColor, advantagesColor },
         bannerGradient: {
             gradientAngle,
             gradientFirstColor,
@@ -104,7 +104,7 @@ const renderBanner = (tags) => {
     const advantagesList = arrayRender(
         advantages,
         (a) => `
-	<div class="advantage" data-v-fa5ea76c="">
+	<div style="color: ${advantagesColor};" class="advantage" data-v-fa5ea76c="">
 			<div class="check" data-v-fa5ea76c="">
 				<img width="12" height="12" src="${advantageIcon}" >
 			</div>
@@ -115,7 +115,7 @@ const renderBanner = (tags) => {
 
     headerWrapper.innerHTML = `
         <div class="info-wrap" data-v-fa5ea76c="">
-          <h1 class="title font-card-accent" data-v-fa5ea76c="">${title}</h1>
+          <h1 class="title font-card-accent" style="color: ${titleColor};" data-v-fa5ea76c="">${title}</h1>
           <div class="advantages-wrap" data-v-fa5ea76c="">
             ${advantagesList}
           </div>
