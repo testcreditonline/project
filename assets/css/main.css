@@ -3611,17 +3611,23 @@ body.open-modal {
 }
 
 .looking-for__content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    overflow: hidden;
+    margin: 0 60px;
+}
+
+.looking-for__buttons {
+    position: relative;
+    height: 0;
 }
 
 .looking-for__button {
     cursor: pointer;
+    position: absolute;
+    bottom: -10px;
     border: none;
     background-color: transparent;
     width: 50px;
-    height: 40px;
+    height: 50px;
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: center;
@@ -3633,19 +3639,18 @@ body.open-modal {
 
 .looking-for__button_left {
     background-image: url("../images/arrow-left.svg");
+    left: 0;
 }
 
 .looking-for__button_right {
-    margin-left: auto;
     background-image: url("../images/arrow-right.svg");
+    right: 0;
 }
 
 .looking-for__list {
     display: flex;
     align-items: center;
-    flex-wrap: nowrap;
-    overflow-x: hidden;
-    margin: 0 15px;
+    flex-wrap: unset;
 }
 
 .looking-for__item {
@@ -3657,9 +3662,8 @@ body.open-modal {
     height: 30px;
     padding: 0 15px;
     border-radius: 15px;
-    margin: 0 5px;
+    margin-right: 10px;
     white-space: nowrap;
-    transition: transform 0.3s ease-in-out;
 }
 
 .looking-for__link {
@@ -3688,6 +3692,10 @@ body.open-modal {
 @media screen and (max-width: 1024px) {
     .looking-for {
         padding: 0 34px;
+    }
+
+    .looking-for__content {
+        margin: 0;
     }
 
     .looking-for__item {

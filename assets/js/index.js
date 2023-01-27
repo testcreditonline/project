@@ -2,8 +2,6 @@ let loading = false;
 let current = 0;
 let startX;
 let endX;
-let positionDesctop = 0;
-let currentDesctop = 0;
 let currentX = 0;
 let lookingForItems;
 
@@ -12,6 +10,7 @@ const headerWrapperContainer = document.querySelector(
 );
 const headerWrapper = document.querySelector(".header-wrapper");
 const lookingForContent = document.querySelector(".looking-for__content");
+const lookingForButtons = document.querySelector(".looking-for__buttons");
 const lookingForList = document.querySelector(".looking-for__list");
 const buttonLeft = document.querySelector(".looking-for__button_left");
 const buttonRight = document.querySelector(".looking-for__button_right");
@@ -144,7 +143,7 @@ const renderLookingFor = (tags) => {
 
     lookingForList.innerHTML = arrayRender(sortedTags, (t, i) => {
         const active = tag === t.uniqueTag ? "active" : "";
-        return `<div style="order: ${i}" class="looking-for__item ${active}"><a class="looking-for__link" href="${t.uniqueTag}.html">${t.text}</a></div>`;
+        return `<div  class="looking-for__item ${active}"><a class="looking-for__link" href="${t.uniqueTag}.html">${t.text}</a></div>`;
     });
 };
 
@@ -275,82 +274,49 @@ const handleMoveTo = (e) => {
 };
 
 const moveToSide = (side) => {
-    const tags = document.querySelectorAll(".looking-for__item");
+    if (window.clientWidth < 1024) {
+        return;
+    }
+    let tags = document.querySelectorAll(".looking-for__item");
+
     let width;
 
-    let hiddenElementsSumm = 0;
+    lookingForList.style.transition = "transform 0.3s ease-in-out";
 
-    let lastPossibleIndex;
+    if (side === "right") {
+        width = -tags[0].clientWidth - 10;
+        lookingForList.style.transform = `translateX(${width}px)`;
 
-    const summ = [...tags].reduce((sum, item) => {
-        return (sum += 10 + item.clientWidth);
-    }, 0);
-
-    [...tags].reverse().forEach((t, i) => {
-        if (summ - lookingForList.clientWidth > hiddenElementsSumm) {
-            hiddenElementsSumm += t.clientWidth;
-            lastPossibleIndex = i;
-            return;
-        }
-    });
-
-    if (side === "right" && positionDesctop <= lastPossibleIndex) {
-        if (positionDesctop === lastPossibleIndex) return;
-        if (positionDesctop === lastPossibleIndex - 1)
-            width = -tags[tags.length - 1].clientWidth;
-        else {
-            tags.forEach((t, i) => {
-                if (i === positionDesctop) return (width = t.clientWidth);
-            });
-            width = -10 - width;
-        }
-        positionDesctop++;
-    } else if (side === "left") {
-        if (positionDesctop <= 0) return;
-        if (positionDesctop === lastPossibleIndex)
-            width = tags[tags.length - 1].clientWidth;
-        else {
-            tags.forEach((t, i) => {
-                if (i === positionDesctop - 1) width = t.clientWidth;
-            });
-            width = 10 + width;
-        }
-        positionDesctop--;
+        setTimeout(() => {
+            lookingForList.append(tags[0]);
+            lookingForList.style.transition = "transform 0s ease-in-out";
+            lookingForList.style.transform = `translateX(${0}px)`;
+        }, 300);
     }
 
-    currentDesctop = currentDesctop + width;
+    if (side === "left") {
+        width = tags[tags.length - 1].clientWidth + 10;
+        lookingForList.style.transition = "transform 0s ease-in-out";
+        lookingForList.style.transform = `translateX(${-width}px)`;
+        lookingForList.prepend(tags[tags.length - 1]);
 
-    tags.forEach((t) => {
-        t.style.transform = `translateX(${currentDesctop}px)`;
-    });
+        setTimeout(() => {
+            lookingForList.style.transition = "transform 0.3s ease-in-out";
 
-    // const width = tags[positionDesctop].clientWidth + 10;
-
-    // if (side === "right") {
-    //     positionDesctop++;
-    //     if (positionDesctop === tags.length) positionDesctop = 0;
-    // } else {
-    //     positionDesctop--;
-    //     if (positionDesctop === -1) positionDesctop = tags.length - 1;
-    // }
-
-    // tags.forEach((t) => {
-    //     const order = +t.style.order;
-    //     if (side === "right") {
-    //         if (order === 0) t.style.order = tags.length - 1;
-    //         else t.style.order = order - 1;
-    //     } else {
-    //         if (order === tags.length - 1) t.style.order = 0;
-    //         else t.style.order = order + 1;
-    //     }
-    // });
+            lookingForList.style.transform = `translateX(${0}px)`;
+        }, 0);
+    }
 };
 
 const handleTouchStart = (e) => {
+    if (window.innerWidth >= 1024) return;
+
     startX = e.touches[0].clientX;
 };
 
 const handleTouchMove = (e) => {
+    if (window.innerWidth >= 1024) return;
+
     endX = e.touches[0].clientX;
 
     lookingForItems = document.querySelectorAll(".looking-for__item");
@@ -363,9 +329,7 @@ const handleTouchMove = (e) => {
         translateX = currentX + Math.abs(startX - endX);
     }
 
-    lookingForItems.forEach((item) => {
-        item.style.transform = `translateX(${translateX}px)`;
-    });
+    lookingForList.style.transform = `translateX(${translateX}px)`;
 };
 
 const handleTouchEnd = () => {
@@ -377,28 +341,22 @@ const handleTouchEnd = () => {
         currentX = currentX + Math.abs(startX - endX);
     }
 
-    const summ =
-        [...lookingForItems].reduce((sum, item) => {
-            return (sum += 10 + item.clientWidth);
-        }, 0) - lookingForList.clientWidth;
+    const hiddenWidth =
+        lookingForContent.clientWidth - lookingForList.clientWidth;
 
     if (currentX > 0) {
         currentX = 0;
-        lookingForItems.forEach((item) => {
-            item.style.transform = `translateX(${currentX}px)`;
-        });
+        lookingForList.style.transform = `translateX(${currentX}px)`;
     }
-    if (summ < Math.abs(currentX)) {
-        currentX = -summ;
-        lookingForItems.forEach((item) => {
-            item.style.transform = `translateX(${currentX}px)`;
-        });
+    if (currentX < hiddenWidth) {
+        currentX = hiddenWidth - 10;
+        lookingForList.style.transform = `translateX(${currentX}px)`;
     }
 };
 
 mobileMenuButton.addEventListener("click", toggleMenu);
 mobileMenuWrapper.addEventListener("click", closeMenu);
-lookingForContent.addEventListener("click", handleMoveTo);
+lookingForButtons.addEventListener("click", handleMoveTo);
 lookingForContent.addEventListener("touchstart", handleTouchStart);
 lookingForContent.addEventListener("touchmove", handleTouchMove);
 lookingForContent.addEventListener("touchend", handleTouchEnd);
